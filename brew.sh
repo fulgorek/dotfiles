@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+type brew &> /dev/null
+if [[ $? -ne 0 ]]; then
+  echo "installing brew"
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" &> /dev/null
+fi
+
 # Install command-line tools using Homebrew.
 
 # Make sure we’re using the latest Homebrew.
