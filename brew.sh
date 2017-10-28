@@ -62,17 +62,17 @@ brew install imagemagick --with-webp
 brew install pv
 brew install rename
 brew install ssh-copy-id
-brew install tree
+# brew install tree
 # brew install vbindiff
 # brew install zopfli
 
-brew install ansible
-brew install aws-elasticbeanstalk
+# brew install ansible
+# brew install aws-elasticbeanstalk
 brew install caddy
-brew install chtf
+brew install tfenv
 brew install docker
 brew install docker-compose
-brew install docker-machine
+# brew install docker-machine
 brew install elixir
 brew install erlang
 brew install ffmpeg
@@ -84,10 +84,10 @@ brew install go
 brew install grep
 brew install htop
 brew install httpie
-brew install hugo
-brew install imagemagick
+# brew install hugo
+# brew install imagemagick
 brew install lame
-brew install mysql
+# brew install mysql
 brew install ncdu
 brew install nmap
 brew install python
