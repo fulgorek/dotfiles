@@ -50,44 +50,29 @@ brew install sfnt2woff-zopfli
 brew install woff2
 
 # Install other useful binaries.
+brew install awscli
+brew install az
 brew install ack
-#brew install exiv2
 brew install git
 brew install git-lfs
 brew install imagemagick --with-webp
-# brew install lua
-# brew install lynx
-# brew install p7zip
-# brew install pigz
 brew install pv
 brew install rename
 brew install ssh-copy-id
-# brew install tree
-# brew install vbindiff
-# brew install zopfli
-
-# brew install ansible
-# brew install aws-elasticbeanstalk
-brew install caddy
 brew install tfenv
 brew install docker
 brew install docker-compose
-# brew install docker-machine
 brew install elixir
 brew install erlang
 brew install ffmpeg
 brew install fish
-# brew install git
+brew install git
 brew install git-crypt
-# brew install glib
 brew install go
 brew install grep
 brew install htop
 brew install httpie
-# brew install hugo
-# brew install imagemagick
 brew install lame
-# brew install mysql
 brew install ncdu
 brew install nmap
 brew install python
@@ -101,6 +86,22 @@ brew install wget
 brew install youtube-dl
 brew install zsh
 
+brew cask install google-chrome
+brew cask install firefox
+brew cask install spectacle
+brew cask install docker
+brew cask install virtualbox
+brew cask install vagrant
+brew cask install iterm2
+brew cask install sublime-text
+brew cask install sequel-pro
+brew cask install slack
+brew cask install tunnelblick
+brew cask install caffeine
+brew cask install flux
+brew cask install evernote
+brew cask install dropbox
+brew cask install skype
 
 # Remove outdated versions from the cellar.
 brew cleanup
