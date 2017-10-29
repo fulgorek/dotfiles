@@ -108,7 +108,6 @@ brew cask install google-chrome
 brew cask install firefox
 brew cask install spectacle
 brew cask install docker
-brew cask install virtualbox
 brew cask install vagrant
 brew cask install iterm2
 brew cask install sublime-text
