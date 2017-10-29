@@ -1,34 +1,46 @@
 #!/usr/bin/env bash
 
+sudo -v
+
+brew_package() {
+  brew list $1 &> /dev/null
+  if [[ $? -eq 1 ]]; then
+  	echo "Installing $1"
+  	brew install $1 &> /dev/null
+  else
+  	echo "$1 already installed!"
+  fi
+}
+
 type brew &> /dev/null
 if [[ $? -ne 0 ]]; then
   echo "installing brew"
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" &> /dev/null
+  /usr/bin/env ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null
 fi
 
 # Install command-line tools using Homebrew.
 
 # Make sure we’re using the latest Homebrew.
-brew update
+brew update &> /dev/null
 
 # Upgrade any already-installed formulae.
-brew upgrade
+brew upgrade &> /dev/null
 
 # Install GNU core utilities (those that come with macOS are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
-brew install coreutils
+brew_package "coreutils"
 
 # Install some other useful utilities like `sponge`.
-brew install moreutils
+brew_package "moreutils"
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
-brew install findutils
+brew_package "findutils"
 # Install GNU `sed`, overwriting the built-in `sed`.
-brew install gnu-sed --with-default-names
+brew_package "gnu-sed --with-default-names"
 # Install Bash 4.
 # Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before
 # running `chsh`.
-brew install bash
-brew install bash-completion2
+brew_package "bash"
+brew_package "bash-completion2"
 
 # Switch to using brew-installed bash as default shell
 if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
@@ -37,60 +49,60 @@ if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
 fi;
 
 # Install `wget` with IRI support.
-brew install wget --with-iri
+brew_package "wget --with-iri"
 
 # Install GnuPG to enable PGP-signing commits.
-brew install gnupg
+brew_package "gnupg"
 
 # Install more recent versions of some macOS tools.
-brew install vim --with-override-system-vi
-brew install grep
-brew install openssh
-brew install screen
-brew install homebrew/php/php56 --with-gmp
+brew_package "vim --with-override-system-vi"
+brew_package "grep"
+brew_package "openssh"
+brew_package "screen"
+brew_package "homebrew/php/php56 --with-gmp"
 
 # Install font tools.
 brew tap bramstein/webfonttools
-brew install sfnt2woff
-brew install sfnt2woff-zopfli
-brew install woff2
+brew_package "sfnt2woff"
+brew_package "sfnt2woff-zopfli"
+brew_package "woff2"
 
 # Install other useful binaries.
-brew install awscli
-brew install az
-brew install ack
-brew install git
-brew install git-lfs
-brew install imagemagick --with-webp
-brew install pv
-brew install rename
-brew install ssh-copy-id
-brew install tfenv
-brew install docker
-brew install docker-compose
-brew install elixir
-brew install erlang
-brew install ffmpeg
-brew install fish
-brew install git
-brew install git-crypt
-brew install go
-brew install grep
-brew install htop
-brew install httpie
-brew install lame
-brew install ncdu
-brew install nmap
-brew install python
-brew install speedtest_cli
-brew install sqlite
-brew install tmate
-brew install tmux
-brew install tree
-brew install vim
-brew install wget
-brew install youtube-dl
-brew install zsh
+brew_package "awscli"
+brew_package "az"
+brew_package "ack"
+brew_package "git"
+brew_package "git-lfs"
+brew_package "imagemagick --with-webp"
+brew_package "pv"
+brew_package "rename"
+brew_package "ssh-copy-id"
+brew_package "tfenv"
+brew_package "docker"
+brew_package "docker-compose"
+brew_package "elixir"
+brew_package "erlang"
+brew_package "ffmpeg"
+brew_package "fish"
+brew_package "git"
+brew_package "git-crypt"
+brew_package "go"
+brew_package "grep"
+brew_package "htop"
+brew_package "httpie"
+brew_package "lame"
+brew_package "ncdu"
+brew_package "nmap"
+brew_package "python"
+brew_package "speedtest_cli"
+brew_package "sqlite"
+brew_package "tmate"
+brew_package "tmux"
+brew_package "tree"
+brew_package "vim"
+brew_package "wget"
+brew_package "youtube-dl"
+brew_package "zsh"
 
 brew cask install google-chrome
 brew cask install firefox
