@@ -119,6 +119,8 @@ brew cask install flux
 brew cask install evernote
 brew cask install dropbox
 brew cask install skype
+brew cask install mac2imgur
 
 # Remove outdated versions from the cellar.
 brew cleanup
+brew cask cleanup
