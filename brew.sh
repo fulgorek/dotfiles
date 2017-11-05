@@ -99,6 +99,7 @@ brew_package "vim"
 brew_package "wget"
 brew_package "youtube-dl"
 brew_package "fisher"
+brew_package "terminal-notifier"
 
 brew cask install google-chrome
 brew cask install firefox
@@ -117,6 +118,7 @@ brew cask install evernote
 brew cask install dropbox
 brew cask install skype
 brew cask install mac2imgur
+# brew cask install time-sink
 
 # Remove outdated versions from the cellar.
 brew cleanup
