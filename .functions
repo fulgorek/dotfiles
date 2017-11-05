@@ -212,6 +212,11 @@ function confirm() {
   esac
 }
 
+function zzz() {
+  confirm "Would you really want to sleep?💀" && \
+  osascript -e 'tell application "System Events" to sleep'
+}
+
 # find process
 function px() {
   if [[ $# -eq 0 ]] ; then
@@ -231,11 +236,50 @@ function kkk() {
     count=$(echo "$pids" | wc -l | sed 's/[^0-9]//g')
     if [[ $pids != "" ]]; then
       confirm "Would you really want to kill $count Processes?" "Cancelled" && \
-      kill -9 $pids && \
+      kill -9 $pids &> /dev/null && \
       echo "killed"
     else
       echo 'No Processes found!'
     fi
+  fi
+}
+
+function valid_repo() {
+  DIR=${1:-$(pwd)}"/.git"
+  if [ -d $DIR ]  2>/dev/null || git rev-parse --git-dir 2>/dev/null
+  then
+    return 1
+  else
+    echo "No Git Repo Found in `pwd`"
+    return 0
+  fi
+}
+
+function bbb() {
+  valid_repo $1
+  if [[ $? == 1 ]]; then
+    confirm "Would you really like to revert to last state?" "Aborted!" && \
+    git reset HEAD --hard && git clean -fd &> /dev/null && \
+    git log --oneline -1
+  fi
+}
+
+function lll() {
+  valid_repo $1
+  if [[ $? == 1 ]]; then
+    git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  fi
+}
+
+function ytdl(){
+  if type youtube-dl &> /dev/null; then
+    if [ ! -z "$1" ]; then
+      youtube-dl -f bestaudio --extract-audio --audio-format mp3 $1
+    else
+      echo "No video ID was specified!"
+    fi
+  else
+    echo "Please install youtube-dl package."
   fi
 }
 
