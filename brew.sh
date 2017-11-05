@@ -5,10 +5,10 @@ sudo -v
 brew_package() {
   brew list $1 &> /dev/null
   if [[ $? -eq 1 ]]; then
-  	echo "Installing $1"
-  	brew install $1 &> /dev/null
+    echo "Installing $1"
+    brew install $1 &> /dev/null
   else
-  	echo "$1 already installed!"
+    echo "$1 already installed!"
   fi
 }
 
