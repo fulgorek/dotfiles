@@ -98,11 +98,11 @@ brew_package "tree"
 brew_package "vim"
 brew_package "wget"
 brew_package "youtube-dl"
-brew_package "zsh"
 brew_package "fisher"
 
 brew cask install google-chrome
 brew cask install firefox
+brew cask install opera
 brew cask install spectacle
 brew cask install docker
 brew cask install vagrant
