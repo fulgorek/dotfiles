@@ -150,3 +150,7 @@ alias reload="exec ${SHELL} -l"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
+
+# Show open ports
+alias netl="sudo lsof -i -P | grep -i 'listen'"
+alias netn="netstat -atp tcp | grep -i 'listen'"
