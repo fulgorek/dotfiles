@@ -283,4 +283,9 @@ function ytdl(){
   fi
 }
 
-
+function gt() {
+  valid_repo $1
+  if [[ $? == 1 ]]; then
+    gittower ${1:-.}
+  fi
+}
